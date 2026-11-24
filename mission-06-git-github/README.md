@@ -95,6 +95,7 @@ The objective of Mission 6 is to master collaborative version control concepts u
 - Root documentation updated: [README.md](file:///Users/kakul/Desktop/digital-detective-8017/README.md)
 - Mission documentation: [README.md](file:///Users/kakul/Desktop/digital-detective-8017/mission-06-git-github/README.md)
 - Feature branch: `update-about` visible on GitHub at `https://github.com/kakuldeka/digital-detective-8017/tree/update-about`
+- Screenshot evidence: [evidence/pr_merge_status.png](file:///Users/kakul/Desktop/digital-detective-8017/evidence/pr_merge_status.png) showing GitHub compare status verifying `update-about` integrated into `main`.
 
 ---
 
