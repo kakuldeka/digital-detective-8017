@@ -39,3 +39,12 @@ Each mission focuses on a specific foundational concept, and all missions are ex
 2. Practical terminal commands, experiments, or scripts are run and verified on the local system.
 3. Every mission folder contains a self-contained `README.md` following the standardized format (Task, Work Completed, Commands Used, Understanding, Difficulties, Resolution, Evidence, Commit Details).
 4. Each completed mission is committed with a descriptive message and pushed to the remote GitHub repository before starting the next mission.
+
+---
+
+## My Learning
+Through the first five missions of this assignment, several core computer science foundations were solidified through direct hands-on practice:
+1. **The IPOS Cycle and Hardware Integration:** Traced how hardware interrupts from physical input devices (keyboards) are handled by the OS kernel, loaded into volatile memory (RAM), executed by the CPU, rendered via GPU framebuffers, and persistently committed to non-volatile SSD storage blocks.
+2. **Terminal Operations and Safe System Management:** Gained confidence working directly in the shell—distinguishing between destructive file replacement (`>`) and safe appending (`>>`), leveraging UNIX pipelines (`|`) to filter command output, and interpreting file permission bits (`rwx`).
+3. **Low-Level Data Representation:** Mastered manual and programmatic conversions between Decimal, Binary, and Hexadecimal number systems, and analyzed how character encoding standards (ASCII vs. UTF-8) enable machines to store human language and international symbols.
+
