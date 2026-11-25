@@ -1,91 +1,75 @@
-# The Digital Detective: Explore Your Computer
+# The Digital Detective
 
-## Diwali Independent Learning Assignment
+### Diwali Independent Learning Assignment
+
+Welcome to my Digital Detective assignment!
+
+This repository documents my work through a series of hands-on missions exploring how computers work. It covers everything from computer hardware and operating systems to programming, number representation, version control and networking.
+
+Each mission includes its own README with the tasks completed, commands or tools used, observations and what I learned along the way.
+
 **Student Name:** Kakul Deka  
 **USN (Last 4 Digits):** 8017  
 **GitHub Repository:** [digital-detective-8017](https://github.com/kakuldeka/digital-detective-8017)  
 **Repository URL:** https://github.com/kakuldeka/digital-detective-8017  
 
----
+## Missions
 
-## 🔍 Assignment Overview
-**The Digital Detective** is an independent practical computer science assignment designed to explore the inner workings of modern computer systems. Through nine ordered, self-contained missions (Mission 0 through Mission 8), this project investigates:
-- How computers capture input, process data, render output, and persist information (the IPOS model).
-- Navigating and manipulating the file system using the Command-Line Interface (CLI).
-- How the operating system coordinates processes, schedules CPU time, manages memory, and enforces security permissions.
-- How programs execute, comparing compiled machine code against interpreted runtime environments.
-- Low-level mathematical representations of data in Binary, Decimal, and Hexadecimal, alongside character encoding standards (ASCII vs. UTF-8).
-- Modern collaborative version control workflows using Git and GitHub (commits, branches, pull requests, and merges).
-- Computer networking architecture, protocol stacks, packet switching, DNS resolution, and the complete web request lifecycle.
+| Mission | Topic | Documentation |
+|---|---|---|
+| 00 | Repository and Workspace Setup | [View](mission-00-setup/) |
+| 01 | Know Your Computer | [View](mission-01-computer-basics/) |
+| 02 | Become Comfortable with the Terminal | [View](mission-02-terminal/) |
+| 03 | Understand the Operating System | [View](mission-03-operating-system/) |
+| 04 | How Programs Run | [View](mission-04-programs/) |
+| 05 | Numbers and Data | [View](mission-05-numbers-data/) |
+| 06 | Git and GitHub | [View](mission-06-git-github/) |
+| 07 | How Computers Communicate | [View](mission-07-networking/) |
+| 08 | Final Report and Submission | [View](mission-08-final-report/) |
 
-> [!NOTE]
-> In compliance with assignment rules, all personal and sensitive details (e.g. domestic IP addresses, Wi-Fi network names, hardware serial numbers, and account usernames) have been securely redacted using `[redacted]`.
+## What This Assignment Covers
 
----
+- **Computer Fundamentals:** Hardware, software and the IPOS model.
+- **Terminal:** Directory navigation, file management, command flags, pipes and package managers.
+- **Operating Systems:** Processes, storage, memory, paths, file permissions and system responsibilities.
+- **Program Execution:** How programs run and the differences between compilers and interpreters.
+- **Numbers and Data:** Decimal, binary and hexadecimal conversions, Python and character encoding.
+- **Version Control:** Git commands, staging, commits, branches, remote repositories and Pull Requests.
+- **Networking:** LAN, MAN, WAN, DNS, routers, protocols, packet switching and client-server communication.
 
-## 📂 Repository Structure & Mission Index
+## Number Converter
 
-Each mission has been developed, verified, documented in its own dedicated folder, and committed independently:
+Mission 5 includes a small Python program that accepts a decimal number and displays its binary and hexadecimal representations.
 
-| Mission | Folder / Link | Focus Area | Status |
-| :--- | :--- | :--- | :--- |
-| **Mission 0** | [mission-00-setup/](file:///Users/kakul/Desktop/digital-detective-8017/mission-00-setup/README.md) | Repository and workspace setup, folder hierarchy, tool verification | ✅ Completed |
-| **Mission 1** | [mission-01-computer-basics/](file:///Users/kakul/Desktop/digital-detective-8017/mission-01-computer-basics/README.md) | Computer fundamentals, IPOS cycle, hardware/software taxonomy | ✅ Completed |
-| **Mission 2** | [mission-02-terminal/](file:///Users/kakul/Desktop/digital-detective-8017/mission-02-terminal/README.md) | Command-line operations, safe file modification, flags, pipes, package managers | ✅ Completed |
-| **Mission 3** | [mission-03-operating-system/](file:///Users/kakul/Desktop/digital-detective-8017/mission-03-operating-system/README.md) | Operating system roles, running processes (PIDs), storage, paths, permissions | ✅ Completed |
-| **Mission 4** | [mission-04-programs/](file:///Users/kakul/Desktop/digital-detective-8017/mission-04-programs/README.md) | How programs run, `hello.py`, compilers vs interpreters | ✅ Completed |
-| **Mission 5** | [mission-05-numbers-data/](file:///Users/kakul/Desktop/digital-detective-8017/mission-05-numbers-data/README.md) | Number conversions (Bin/Dec/Hex), `number_converter.py`, text encoding | ✅ Completed |
-| **Mission 6** | [mission-06-git-github/](file:///Users/kakul/Desktop/digital-detective-8017/mission-06-git-github/README.md) | Git workflow, feature branch `update-about`, Pull Requests, command glossary | ✅ Completed |
-| **Mission 7** | [mission-07-networking/](file:///Users/kakul/Desktop/digital-detective-8017/mission-07-networking/README.md) | Computer networking (LAN/MAN/WAN), DNS, ping, website access sequence | ✅ Completed |
-| **Mission 8** | [mission-08-final-report/](file:///Users/kakul/Desktop/digital-detective-8017/mission-08-final-report/README.md) | Final verification, audit checklist, submission documentation | ✅ Completed |
+To run it from the repository root:
 
----
+```bash
+cd mission-05-numbers-data
+python3 number_converter.py
+```
 
-## 🛠️ How to Run the Number Converter
+The program uses Python's built-in `input()`, `int()`, `bin()` and `hex()` functions.
 
-The Python Number Converter developed in Mission 5 accepts any positive decimal integer and outputs its binary and hexadecimal equivalents.
+## My Learning
 
-### Prerequisites
-- Python 3.8 or higher installed (`python3 --version`).
+- **Computer fundamentals and operating systems:** I learned how hardware and software work together through the IPOS model. I also explored how an operating system manages processes, memory, storage and file permissions.
+- **Working with the Terminal:** I became more comfortable navigating directories, managing files and using command-line tools. I also learned how absolute and relative paths, flags and pipes work.
+- **Programming and data representation:** I explored how programs are executed, compared compilers and interpreters, and practised converting numbers between decimal, binary and hexadecimal. Building the Python number converter helped connect these concepts with actual code.
+- **Version control and collaboration:** I learned how Git tracks changes, how staging differs from committing, and how branches and Pull Requests help organise development. I also created and merged a Pull Request to update this README.
+- **Computer networking:** I explored how devices communicate, how DNS resolves domain names, and how routers, protocols and packet switching help data travel across networks. I also used Terminal to test connectivity and perform DNS lookups.
 
-### Instructions
-1. Open your terminal and navigate to the Mission 5 folder:
-   ```bash
-   cd mission-05-numbers-data
-   ```
-2. Execute the script using Python 3:
-   ```bash
-   python3 number_converter.py
-   ```
-3. Enter a positive decimal integer when prompted (for example, `42`, `255`, or `1024`):
-   ```
-   ====================================
-    Digital Detective Number Converter 
-   ====================================
-   Enter a positive decimal integer: 255
+## Repository Organisation
 
-   --- Conversion Results ---
-   Decimal Value:     255
-   Binary (bin()):    0b11111111 (raw bits: 11111111)
-   Hexadecimal (hex): 0xff (uppercase: FF)
-   --------------------------
-   ```
+The repository is organised into separate folders for all nine missions. Each mission has its own `README.md` containing its work and explanations.
+
+The Python number converter and the other practical files are stored in their respective mission folders. Supporting outputs and observations are documented alongside the relevant tasks.
+
+## Commits and Progress
+
+Each mission has been documented and committed separately using Git. The commits are pushed to the public GitHub repository, making the progress and development history visible.
+
+Mission 6 also includes a branch and Pull Request workflow. Pull Request #1 was created from `update-about` into `main` and successfully merged.
 
 ---
 
-## 💡 Summary of Learning
-Throughout this assignment, several foundational computing pillars were explored and practically applied:
-1. **Low-Level to High-Level Hardware Abstraction:** Understood how hardware input signals trigger processor interrupts, interact with volatile memory (RAM), and transition to persistent secondary storage (SSD) through the operating system kernel.
-2. **Command-Line Interface Fluency:** Learned to interact with the system via terminal commands, utilizing flags to modify command behavior, and using UNIX pipes (`|`) to compose modular commands into streaming workflows.
-3. **Systems & Runtime Mechanics:** Contrasted native machine compilation (C/C++, Rust) with bytecode interpretation (Python), observing how the OS schedules processes via unique Process IDs (PIDs) and isolates memory spaces.
-4. **Data Representation:** Demystified how arbitrary information—numbers, instructions, and human text—is represented as voltage-based bitstrings, exploring base-2, base-10, base-16 conversions, and UTF-8 encoding standards.
-5. **Collaborative Version Control:** Applied professional Git branching workflows, tracking changes across local commits, opening and integrating feature branches via Pull Requests, and synchronizing with remote cloud repositories on GitHub.
-6. **Network Protocols & The Web:** Traced how data packets travel across routers using packet switching, how DNS translates human domain names into IP addresses, and how the multi-layer protocol stack (TCP, TLS, HTTPS) delivers web applications.
-
----
-
-## 📜 Commit & Verification Discipline
-In strict adherence to assignment guidelines:
-- Every mission was implemented, documented, committed, and pushed separately in exact sequence.
-- All mission folders contain a dedicated, uniform 8-section `README.md`.
-- No personal identifying information (passwords, tokens, private network IPs) has been published.
+**Repository Status:** All nine missions documented; final report completed. Ready for instructor submission.

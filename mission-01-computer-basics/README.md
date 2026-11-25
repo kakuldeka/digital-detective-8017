@@ -1,87 +1,100 @@
-# Mission 1 — Know your computer
+# Mission 1 — Know Your Computer
 
 ## 1. Task / objective
-The objective of Mission 1 is to examine foundational computer architecture concepts, specifically the Input-Processing-Output-Storage (IPOS) model, distinguish between system, application, and utility software alongside physical hardware components, and identify embedded computer systems operating in daily life outside standard personal computing devices.
 
----
+Understand how a computer receives input, processes information, produces output and stores results using the IPOS cycle.
+
+Identify commonly used hardware and software components, classify software into different categories, and explore computer-based systems used in everyday life.
 
 ## 2. Work completed
-- Analyzed and traced a concrete daily computing activity (typing, reviewing, and saving a code report) across each stage of the IPOS cycle, identifying the physical components responsible.
-- Classified hardware components and software utilities into distinct functional categories (Operating System, Application Software, and Utility Software).
-- Identified and analyzed three ubiquitous embedded/specialized computing systems (Automated Teller Machine, Smart City Traffic Controller, and Metro Automatic Fare Collection Gate).
-- Documented findings in structured tables adhering to all assignment requirements.
 
----
+### Task 1.1 — Trace one activity using IPOS
+
+Selected activity: Typing and saving a document.
+
+| Stage | What happens? | Hardware / component |
+|---|---|---|
+| Input | Text is entered into a document using the keyboard. | Keyboard |
+| Processing | The CPU processes the instructions while RAM temporarily holds the active data. | CPU and RAM |
+| Output | The document and its contents are displayed on the screen. | Monitor / Display |
+| Storage | The document is saved for future access. | SSD |
+
+The activity involves receiving text through the keyboard, processing it, displaying it on the screen and eventually storing it on the SSD when saved.
+
+### Task 1.2 — Identify hardware and software
+
+**Hardware**
+
+| Item / software name | Hardware or software? | Software type (if applicable) | Purpose |
+|---|---|---|---|
+| Keyboard | Hardware | Not applicable | Used to enter text and commands. |
+| Trackpad | Hardware | Not applicable | Used to control the pointer and interact with the interface. |
+| SSD | Hardware | Not applicable | Stores files, applications and the operating system. |
+| RAM | Hardware | Not applicable | Temporarily holds data and instructions currently in use. |
+| Processor (CPU) | Hardware | Not applicable | Executes instructions and performs computations. |
+
+**Software**
+
+| Item / software name | Hardware or software? | Software type (if applicable) | Purpose |
+|---|---|---|---|
+| macOS | Software | Operating System | Manages computer hardware, memory, files and applications. |
+| Web Browser | Software | Application Software | Used to browse websites and access online services. |
+| Terminal | Software | Utility Software | Provides a command-line interface to interact with the operating system. |
+| Git | Software | Utility Software | Tracks changes and manages different versions of project files. |
+| Visual Studio Code | Software | Application Software | Used to write, edit and manage source code. |
+
+### Task 1.3 — Computer systems around you
+
+| System | Main purpose | One input | One output |
+|---|---|---|---|
+| Smartwatch | Tracks fitness activities and displays notifications. | Touchscreen interactions / sensor readings | Display / vibration alerts |
+| Bluetooth Speaker | Plays audio received from connected devices. | Bluetooth audio data | Sound |
+| Wireless Earphones | Receive and play audio wirelessly. | Bluetooth audio data | Sound |
 
 ## 3. Commands / tools used
-- Text Editor / Markdown formatting tools for structured documentation.
-- Terminal observation tools (`system_profiler` and OS info utilities) to cross-reference system specifications and hardware device buses.
 
----
+No Terminal commands were required for this mission.
+
+The following hardware and software components were examined or used while completing the activities:
+
+| Component / Tool | Purpose |
+|---|---|
+| Keyboard | Used to enter text into a document. |
+| CPU | Processes instructions and performs computations. |
+| RAM | Temporarily holds active data and instructions. |
+| Display | Presents processed information to the user. |
+| SSD | Stores documents and other information persistently. |
+| macOS | Operating system used on the computer. |
+| Terminal | Provides access to command-line operations. |
+| Git | Used for version control in the assignment repository. |
+| Python 3 | Used for executing Python programs. |
 
 ## 4. My understanding
 
-### Task 1.1 — Trace one activity using IPOS
-**Chosen Activity:** Writing, editing, and saving a Python script (`analysis.py`) inside an integrated development environment.
+A computer system follows the IPOS cycle, which stands for Input, Processing, Output and Storage.
 
-| Stage | What happens in your example? | Possible hardware / component |
-| :--- | :--- | :--- |
-| **Input** | Keystrokes representing characters and keyboard shortcuts (`Cmd+S`) are detected by the keyboard controller and sent as hardware interrupts to the OS. | Mechanical/membrane keyboard, trackpad/mouse |
-| **Processing** | The CPU fetches keyboard interrupt signals, processes character encodings in cache and RAM, coordinates syntax highlighting, and executes the file save routine. | Multi-core Central Processing Unit (CPU) and System RAM |
-| **Output** | The display controller renders the updated code buffer and file status indicators onto the screen pixels at high refresh rates. | Liquid Retina Display / external monitor and GPU |
-| **Storage** | The file buffer residing in volatile RAM is serialized into byte streams and written persistently onto non-volatile flash memory cells. | Solid State Drive (NVMe SSD storage controller) |
+Input is the data provided to the computer. The CPU processes the instructions and RAM temporarily holds the data being used. The processed information is presented through output devices such as displays and speakers. Storage devices such as SSDs retain information for future access.
 
-#### Narrative Explanation of Flow
-1. **From Input to Processing:** When a key is struck, electrical contact triggers a scan code. The keyboard microcontroller sends this signal across the USB or SPI bus to the CPU. The operating system kernel receives the interrupt request (IRQ), maps the keycode to a Unicode character, and pushes it into the active editor application's buffer held in RAM.
-2. **From Processing to Output:** The editor updates its internal text tree. The CPU and GPU compute font rasterization and send display framebuffers to the display controller, rendering visible letters on screen almost instantaneously.
-3. **From Processing to Storage:** When the save command (`Cmd+S`) is executed, the editor issues a system call (`write`) to the file system. The operating system kernel schedules disk I/O, writing the data blocks to the NVMe SSD controller, making the code persistent even if the power is cut.
+Hardware refers to the physical components of a computer, whereas software consists of programs and instructions that control its operation.
 
----
+Software can be classified into operating system software, application software and utility software. Operating systems manage computer resources, applications help users perform specific tasks, and utilities help maintain or manage the system.
 
-### Task 1.2 — Identify hardware and software
-The table below details physical hardware devices and representative software categories used during software development:
-
-| Item / software name | Hardware or software? | Software type (if applicable) | Purpose |
-| :--- | :--- | :--- | :--- |
-| **NVMe Solid State Drive (SSD)** | Hardware | *Not applicable* | Provides high-speed non-volatile secondary storage for the operating system, applications, and user repositories. |
-| **Random Access Memory (RAM)** | Hardware | *Not applicable* | High-speed volatile primary memory holding active instructions and working data needed immediately by the CPU. |
-| **Apple M-Series CPU Cores** | Hardware | *Not applicable* | Executes machine code instructions, performs arithmetic and logic operations, and controls data transfers. |
-| **Retina Built-in Display** | Hardware | *Not applicable* | Primary visual output device presenting graphical and text interfaces to the user. |
-| **macOS (Darwin Kernel)** | Software | Operating System | Manages hardware abstractions, CPU process scheduling, virtual memory, device drivers, and security isolation. |
-| **Visual Studio Code** | Software | Application Software | Extensible code editor providing text manipulation, syntax parsing, and workspace navigation for developers. |
-| **Terminal (zsh shell)** | Software | Application / System Shell | Command-line interpreter allowing users to interact directly with the operating system kernel via text commands. |
-| **Time Machine / Disk Utility** | Software | Utility Software | System maintenance tools for managing disk partitions, repairing file system tables, and creating automated snapshots. |
-
----
-
-### Task 1.3 — Computer systems around you
-Everyday computing systems embedded in dedicated physical infrastructure:
-
-| System | Main purpose | One input | One output |
-| :--- | :--- | :--- | :--- |
-| **Automated Teller Machine (ATM)** | Dispenses authenticated bank funds and provides account transaction balances securely. | EMV chip card reader and numeric PIN keypad. | Physical cash dispensing shutter mechanism and thermal receipt printer. |
-| **Smart Adaptive Traffic Light** | Regulates vehicle flow and pedestrian crossing dynamically to prevent traffic gridlock. | In-road inductive electromagnetic loop sensors and roadside pedestrian push-buttons. | High-intensity LED signal lamps (Green / Yellow / Red) and pedestrian crossing countdown displays. |
-| **Metro Automatic Fare Collection (AFC) Gate** | Validates passenger travel transit cards and controls physical platform gate turnstiles. | RFID / NFC contactless smart card scanner. | Pneumatic/motorized turnstile barrier release and acoustic confirmation beeper. |
-
----
+I also learned that computers are not limited to laptops and desktops. Devices such as smartwatches, Bluetooth speakers and wireless earphones contain embedded computing components that process information and perform dedicated functions.
 
 ## 5. Difficulties faced
-- Distinguishing clearly between system software (operating systems) and utility software (maintenance tools like disk checkers or compression utilities) since utility software often ships bundled with modern operating systems.
-- Mapping intangible software commands (like clicking save) to the exact hardware transitions between volatile RAM and solid-state flash blocks.
+
+No major difficulties.
 
 ## 6. How I resolved them
-- Reviewed the functional definitions of OS (core supervisor managing hardware resources) versus utilities (specialized tasks that analyze, configure, optimize, or maintain a computer).
-- Traced the low-level operating system I/O stack: User Space Application -> System Call Interface (`sys_write`) -> Virtual File System (VFS) -> Block Device Driver -> NVMe Hardware Controller -> Flash Memory NAND cells.
 
----
+Not applicable.
 
 ## 7. Evidence / files
-- [README.md](file:///Users/kakul/Desktop/digital-detective-8017/mission-01-computer-basics/README.md)
-- Root index linkage: [Root README.md](file:///Users/kakul/Desktop/digital-detective-8017/README.md)
 
----
+- `README.md` — Contains the completed IPOS, hardware/software and everyday computer-system tables, along with explanations.
 
 ## 8. Commit details
-- **Commit message:** `Complete computer basics and IPOS mission`
-- **Target branch:** `main`
-- **Remote status:** Pushed and verified on GitHub
+
+**Commit message:** "Complete computer basics and IPOS mission".
+
+**Push status:** Successfully committed and pushed to GitHub.

@@ -1,119 +1,168 @@
-# Mission 2 — Become comfortable with the Terminal
+# Mission 2 — Become Comfortable with the Terminal
 
 ## 1. Task / objective
-The objective of Mission 2 is to gain proficiency with the Command-Line Interface (CLI), master essential navigation and file management commands, safely perform file creation, modification, duplication, and renaming, understand command-line flags and UNIX data pipelines, and evaluate package manager tools.
 
----
+Explore the command-line interface and become comfortable with basic Terminal operations. Practise navigating directories, creating and managing files, understanding command flags and pipes, and learning how package managers work.
 
 ## 2. Work completed
-- Practiced core directory navigation and inspection commands (`pwd`, `ls`, `ls -l`, `cd`).
-- Created a safe, isolated practice sandbox directory (`terminal-practice/`) inside the repository.
-- Practiced non-destructive file modification (comparing overwrite `>` with append `>>`).
-- Executed file duplication (`cp`) and renaming (`mv`) operations safely inside the sandbox.
-- Tested compound flags (`-lah`) and compared output details with basic directory listings.
-- Constructed a pipeline using the pipe operator (`|`) to stream `ls -la` into `head -n 5`.
-- Verified macOS package manager Homebrew (`Homebrew 7.0.13`) and inspected managed packages safely without altering system configurations.
-- Documented all observations, command tables, and conceptual answers.
-
----
-
-## 3. Commands / tools used
-- `pwd`: Prints the current working directory's absolute path.
-- `ls`: Lists files and directories in the current folder.
-- `ls -l` / `ls -lah`: Lists items in long format showing permissions, ownership, byte size (or human-readable units), timestamps, and hidden entries.
-- `cd ..` / `cd <folder>`: Navigates up to the parent directory or down into a subfolder.
-- `mkdir terminal-practice`: Creates a designated practice folder.
-- `touch <file>` / `echo ... > <file>`: Creates empty files or writes text into files.
-- `echo ... >> <file>`: Appends lines of text without erasing preexisting contents.
-- `cat <file>`: Displays file contents directly to standard output.
-- `cp <source> <dest>`: Duplicates a file while preserving the original.
-- `mv <old> <new>`: Renames a file or relocates it to a new path.
-- `|` (UNIX pipe): Passes stdout from the left command into stdin of the right command.
-- `head -n <k>`: Filters and outputs only the first $k$ lines of incoming text.
-- `brew --version` & `brew list`: Queries the Homebrew package manager.
-
----
-
-## 4. My understanding
 
 ### Task 2.1 — Explore basic Terminal operations
 
-| Operation / command name | What it does | What I observed |
-| :--- | :--- | :--- |
-| **Current-directory display (`pwd`)** | Prints the full absolute path of the directory currently active in the shell. | Output displayed `/Users/[redacted]/Desktop/digital-detective-8017`, confirming exact location in the filesystem tree. |
-| **Directory listing (`ls`)** | Lists names of visible files and folders in the current directory. | Displayed mission folders (`mission-00-setup`, `mission-01-computer-basics`, etc.) and `README.md`. |
-| **Detailed listing (`ls -l`)** | Displays items in columnar format with permissions, link count, owner, group, file size in bytes, modification date, and filename. | Listed each entry with details like `-rw-r--r--` and owner name, giving full metadata visibility. |
-| **Change directory (`cd ..` and `cd -`)** | Moves shell context up to parent folder (`..`) or navigates to specified subfolders. | Prompt and `pwd` updated dynamically; moving to `..` changed working location to the Desktop folder. |
-| **Create directory (`mkdir terminal-practice`)** | Creates a new directory at the specified path if it doesn't already exist. | Created folder `terminal-practice/` without error; verified its presence in subsequent `ls`. |
-| **Create empty file (`touch practice_note.txt`)** | Creates a 0-byte file or updates timestamps of an existing file. | A file named `practice_note.txt` appeared with size 0 bytes. |
-| **Copy file (`cp practice_note.txt backup_note.txt`)** | Duplicates the source file into a new file, leaving the source intact. | Two separate files existed with identical content and independent inodes. |
-| **Move / rename file (`mv backup_note.txt archived_note.txt`)** | Renames the file or moves it to a different directory path without duplicating data. | `backup_note.txt` was renamed to `archived_note.txt`; the old name ceased to exist. |
-| **Display file contents (`cat practice_note.txt`)** | Reads file sequentially and outputs its entire text contents to the terminal. | Printed the stored text lines directly to the terminal output stream. |
+Practised the required directory and file-management operations inside the assignment repository.
 
----
+| Operation / command name | Command | What it does | What I observed |
+|---|---|---|---|
+| Current-directory display | `pwd` | Displays the absolute path of the current working directory. | Displayed the full path ending in `digital-detective-8017`. |
+| Directory listing | `ls` | Lists files and directories in the current location. | Displayed the root README, evidence directory and all mission directories. |
+| Detailed listing | `ls -l` | Displays file permissions, ownership, sizes and modification timestamps. | Displayed additional information about each file and directory, including permissions and ownership. |
+| Change directory | `cd ..`, `cd -` | Changes the current working directory. | `cd ..` moved to the parent directory, while `cd -` returned to the previous directory. |
+| Create directory | `mkdir practice-2-1` | Creates a new directory. | Created the `practice-2-1` directory inside the mission folder. |
+| Create empty file | `touch practice-2-1/sample.txt` | Creates an empty file if it does not already exist. | Created an empty `sample.txt` file. |
+| Copy file | `cp practice-2-1/sample.txt practice-2-1/sample-copy.txt` | Creates a copy of an existing file. | Created `sample-copy.txt` while retaining the original file. |
+| Move / rename file | `mv practice-2-1/sample-copy.txt practice-2-1/renamed-copy.txt` | Moves or renames a file. | Renamed the copied file to `renamed-copy.txt`. |
+| Display file contents | `cat practice-2-1/sample.txt` | Displays the contents of a file in the Terminal. | Displayed the text `Digital Detective Mission 2`. |
 
-### Task 2.2 — Practise file changes safely (terminal-practice)
+### Task 2.2 — Practise file changes safely
 
-#### Conceptual Questions & Answers
-1. **What is the difference between replacing a file's contents and adding text to the end?**  
-   - **Replacing (`>` redirection):** The single greater-than operator truncates (erases) the existing contents of the target file before writing new data. If the file previously contained 100 lines, they are wiped out and replaced solely with the newly provided line.
-   - **Adding to the end (`>>` redirection):** The double greater-than operator opens the file in append mode. It leaves all existing lines untouched and writes the new text strictly after the final existing character.
-2. **What is the difference between copying a file and moving a file?**  
-   - **Copying (`cp`):** Allocates new storage blocks on the disk and creates an entirely separate duplicate file. Changes made to the copy do not affect the original.
-   - **Moving (`mv`):** Within the same filesystem, moving simply updates the directory pointer / filename (metadata entry) pointing to the existing disk blocks. The original filename is removed. No new duplicate data is created.
-3. **What information does the current-directory display (`pwd`) provide?**  
-   - It provides the absolute path starting from the root directory (`/`), indicating the exact contextual hierarchy where any relative file paths will be resolved.
-4. **Why is a directory-listing operation useful?**  
-   - It confirms file creation, validates exact spelling and file extensions, verifies file permissions and sizes, and prevents accidental overwrites before running destructive operations.
+Created a directory named `terminal-practice` inside `mission-02-terminal` and performed file-management operations inside it.
 
----
+Created `notes.txt` and added two lines of text:
+
+```text
+This is the first line.
+This is the second line.
+```
+
+Used the following commands:
+
+```bash
+printf 'This is the first line.\n' > notes.txt
+printf 'This is the second line.\n' >> notes.txt
+cat notes.txt
+```
+
+Created a backup using `cp` and renamed it using `mv`.
+
+The final directory contained:
+
+- `notes.txt`
+- `notes-backup.txt`
+
+Both files had a size of 49 bytes.
+
+**Answers to the questions:**
+
+1. **Difference between replacing contents and appending text:** The `>` operator replaces the existing contents of a file, whereas `>>` appends new content without removing what is already present.
+
+2. **Difference between copying and moving:** Copying creates another instance of a file while retaining the original. Moving transfers a file to another location or renames it without keeping the original at its previous path.
+
+3. **Information provided by the current-directory display:** The `pwd` command displays the absolute path of the directory in which the Terminal is currently operating.
+
+4. **Purpose of directory listing:** It helps identify the files and directories present in a location, making navigation and file management easier.
 
 ### Task 2.3 — Understand flags and pipes
 
-#### Flags Comparison
-- **Normal listing (`ls`):** Only prints filenames in horizontal or simple column layout, hiding hidden files (files beginning with `.`) and omitting permissions, owner, and sizes.
-- **Detailed + Hidden + Human-readable listing (`ls -lah`):**
-  - `-l`: Formats output as a detailed table with file permissions, link counts, owner, group, size, and modification timestamp.
-  - `-a`: Displays **all** files, including hidden dotfiles like `.git`, `.DS_Store`, `.`, and `..`.
-  - `-h`: Formats file byte sizes into human-readable units (e.g., `82B`, `4.0K`, `12M`) instead of raw byte counts.
+Compared the outputs of the following commands:
 
-#### UNIX Pipes (`|`)
-- **Command Tested:** `ls -la | head -n 5`
-- **How it works:**
-  - The pipe operator (`|`) connects the Standard Output (`stdout`) of the command on its left (`ls -la`) directly to the Standard Input (`stdin`) of the command on its right (`head -n 5`).
-  - **Left side (`ls -la`):** Generates a comprehensive multi-line listing of all files and metadata.
-  - **Right side (`head -n 5`):** Receives the stream and filters it, outputting only the first 5 lines (the total summary and the first few directory entries) and discarding the rest.
-  - This illustrates the core UNIX philosophy: small, modular tools composed together to perform complex filtering.
+```bash
+ls
+ls -l
+ls -lah
+```
 
----
+The normal listing displayed file and directory names. The detailed listing provided additional information such as permissions, ownership, file sizes and modification times.
+
+Using `-a` included hidden files and directories such as `.git` and `.gitignore`, while `-h` displayed file sizes in human-readable units.
+
+Also practised piping the output of one command into another:
+
+```bash
+ls -lah | head -n 5
+```
+
+The command displayed only the first five lines of the detailed listing, including its initial total line.
+
+The pipe symbol (`|`) transfers the standard output of the command on its left to the standard input of the command on its right. In this example, `ls -lah` generates the listing and `head -n 5` displays its first five lines.
 
 ### Task 2.4 — Understand package managers
-- **Observed Version:** Homebrew 7.0.13
-- **Observed Managed Packages:** Tools such as `ca-certificates`, `coreutils`, `cowsay`, `ffmpeg`, etc.
-- **Why Package Managers are Useful:**  
-  A package manager automates the discovery, download, compilation, installation, dependency resolution, updating, and uninstallation of software packages from centralized repositories. Instead of manually downloading binary archives, tracking down shared library dependencies, and placing binaries into system `$PATH` directories, developers can install and maintain command-line tools and libraries using a single standardized command (e.g., `brew install`). It ensures consistency, security updates, and clean removals without leaving orphaned files.
 
----
+Checked the installed Homebrew version and inspected its package list.
+
+**Homebrew version:** 7.0.13
+
+Commands used:
+
+```bash
+brew --version
+brew list
+```
+
+The package listing was divided into two categories:
+
+- **Formulae:** Included command-line tools, libraries and other packages, such as coreutils, cowsay, ffmpeg, and ca-certificates.
+- **Casks:** Included graphical applications managed via Homebrew Cask.
+
+A package manager simplifies software management by automating installation, updates and removal of packages. It also handles dependencies, making it easier to install and maintain software without manually configuring everything.
+
+No packages were installed or uninstalled during this activity.
+
+## 3. Commands / tools used
+
+| Command / Tool | Purpose |
+|---|---|
+| `pwd` | Displays the current working directory. |
+| `ls` | Lists files and directories. |
+| `ls -l` | Displays a detailed directory listing. |
+| `ls -lah` | Includes hidden entries and human-readable file sizes. |
+| `cd ..` | Moves to the parent directory. |
+| `cd -` | Returns to the previous working directory. |
+| `mkdir` | Creates directories. |
+| `touch` | Creates empty files. |
+| `printf` | Writes formatted text to files. |
+| `>` | Redirects output and replaces existing file contents. |
+| `>>` | Redirects output by appending to a file. |
+| `cp` | Copies files. |
+| `mv` | Moves or renames files. |
+| `cat` | Displays file contents. |
+| `head -n 5` | Displays the first five lines of input. |
+| `\|` | Connects commands through a pipe. |
+| `brew --version` | Displays the Homebrew version. |
+| `brew list` | Lists installed Homebrew packages. |
+
+## 4. My understanding
+
+The Terminal provides a command-line interface through which users can interact with the operating system using commands.
+
+Directory-navigation commands such as `pwd` and `cd` help identify and change the current working location. Commands such as `ls` provide information about files and directories.
+
+File-management operations such as `touch`, `cp`, `mv` and `cat` make it possible to create, copy, rename and inspect files directly from the Terminal.
+
+I also learned the difference between output redirection using `>` and `>>`. The former replaces existing file contents, while the latter appends new text.
+
+Command flags modify how commands behave. For example, `ls -lah` combines detailed listing, hidden-file visibility and human-readable file sizes.
+
+Pipes allow multiple commands to work together by passing the output of one command to another.
+
+Finally, package managers such as Homebrew simplify software installation and maintenance by managing packages and their dependencies.
 
 ## 5. Difficulties faced
-- Accidentally running `>` instead of `>>` could erase notes during append testing.
-- Remembering to stay strictly within the `terminal-practice` sandbox to ensure no root project files or Git metadata were modified.
+
+No major difficulties.
 
 ## 6. How I resolved them
-- Carefully verified shell redirection operators prior to execution (`>>` for append, `>` for initial write).
-- Executed `pwd` and `ls` within `terminal-practice/` before every file command to guarantee containment.
 
----
+Not applicable.
 
 ## 7. Evidence / files
-- Sandbox folder: [terminal-practice/](file:///Users/kakul/Desktop/digital-detective-8017/terminal-practice/)
-- Practice notes: [terminal-practice/practice_note.txt](file:///Users/kakul/Desktop/digital-detective-8017/terminal-practice/practice_note.txt)
-- Archived backup: [terminal-practice/archived_note.txt](file:///Users/kakul/Desktop/digital-detective-8017/terminal-practice/archived_note.txt)
-- Mission documentation: [README.md](file:///Users/kakul/Desktop/digital-detective-8017/mission-02-terminal/README.md)
 
----
+- `README.md` — Contains the command reference, observations, explanations and answers.
+- `practice-2-1/sample.txt` — Original practice text file.
+- `practice-2-1/renamed-copy.txt` — Renamed copy of the original file.
+- `terminal-practice/notes.txt` — Text file containing two appended lines.
+- `terminal-practice/notes-backup.txt` — Backup copy of the text file.
 
 ## 8. Commit details
-- **Commit message:** `Complete Terminal and file management mission`
-- **Target branch:** `main`
-- **Remote status:** Pushed and verified on GitHub
+
+**Commit message:** `Complete Terminal and file management mission`
+
+**Push status:** Successfully committed and pushed to GitHub.

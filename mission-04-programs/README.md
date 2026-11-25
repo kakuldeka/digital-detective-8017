@@ -1,71 +1,85 @@
-# Mission 4 — How programs run
+# Mission 4 — How Programs Run
 
 ## 1. Task / objective
-The objective of Mission 4 is to explore how computers translate and execute programming source code into machine instructions. This includes authoring and running a basic Python script from the command line, understanding the roles of compilers versus interpreters, and contrasting their translation models, runtime performance, and output artifacts.
 
----
+Understand how programs are executed by computers by running a simple Python program and comparing the working principles of compilers and interpreters.
+
+The objective was to create and execute a Python program, observe its output, and understand the differences between the two approaches to program execution.
 
 ## 2. Work completed
-- Authored a working Python script named `hello.py` inside `mission-04-programs/`.
-- Executed `hello.py` from the terminal using the Python 3 interpreter (`python3 hello.py`) and verified stdout output (`Hello from Python`).
-- Constructed a comparative analysis table evaluating compilers and interpreters across translation timing, output artifacts, language examples, and architectural advantages.
-- Provided a clear synthesis explaining how modern runtime environments execute code.
-
----
-
-## 3. Commands / tools used
-- `python3 hello.py`: Invoked the CPython 3 runtime interpreter to compile and execute the script.
-- Terminal text streams to observe standard output and exit codes.
-
----
-
-## 4. My understanding
 
 ### Task 4.1 — Create and run a Python program
-- Created file: `mission-04-programs/hello.py`
+
+Created a Python file named `hello.py` inside the Mission 4 directory.
+
+**Program:**
+
 ```python
 print("Hello from Python")
 ```
-- **Execution command:** `python3 hello.py`
-- **Output:**
+
+Executed the program using Python 3 from the Terminal:
+
+```bash
+python3 hello.py
 ```
+
+**Output:**
+
+```text
 Hello from Python
 ```
-- **Observation:** When Python executes `hello.py`, the source code is read, parsed into an Abstract Syntax Tree (AST), compiled into Python bytecode in memory, and interpreted by the Python Virtual Machine (PVM) line by line, printing the string immediately to the console without producing a standalone machine binary.
 
----
+The program executed successfully and displayed the expected message.
 
 ### Task 4.2 — Compare compiler and interpreter
 
 | Point | Compiler | Interpreter |
-| :--- | :--- | :--- |
-| **When translation / execution happens** | Translation occurs entirely **before** program execution in an upfront compilation build phase. | Translation occurs **at runtime**, reading, translating, and executing statements line by line or block by block. |
-| **Typical output** | An independent, standalone native executable binary (e.g., ELF on Linux, Mach-O on macOS, `.exe` on Windows) containing machine instructions directly readable by the CPU. | Direct in-memory execution results; no persistent native machine code binary is output (often produces intermediate bytecode caches like `.pyc`). |
-| **One example** | **C** (using `gcc` or `clang`), **C++**, **Rust**, or **Go**. | **Python** (CPython), **Ruby**, or classic **JavaScript** (in simple engines). |
-| **One advantage** | **High runtime execution performance:** Because machine code is generated and optimized beforehand, the CPU executes it natively without runtime translation overhead. | **Rapid development and portability:** Code can be written, tested, and modified interactively without lengthy recompilation cycles, running on any system with the interpreter installed. |
+|---|---|---|
+| When translation / execution happens | Translates the program before execution. | Processes and executes instructions during runtime. |
+| Typical output | Often produces machine code or an executable file. | Generally executes through an interpreter without producing a separate native executable. |
+| One example | C (GCC / Clang) | Python (CPython) |
+| One advantage | Compiled programs can execute faster after compilation. | Supports interactive execution and convenient testing. |
 
-#### Detailed Explanation of Differences
-A **compiler** translates the entire human-readable high-level source code into low-level native CPU machine instructions before the program is ever launched. This means syntax errors and type mismatches are caught early during compilation, and the resulting executable can run at maximum hardware speed independently of the compiler toolchain.
+**Explanation:**
 
-In contrast, an **interpreter** processes source code on the fly during program execution, translating instructions into actions as it encounters them. This enables immediate feedback, interactive debugging, and cross-platform flexibility, but incurs higher computational overhead because translation happens alongside execution. Modern languages like Python use a hybrid model: compiling source code to intermediate bytecode, which is then dynamically interpreted by a virtual machine.
+A compiler translates source code into another form, often machine code, before the program is executed. An interpreter processes and executes instructions at runtime rather than requiring a separately compiled executable in the traditional model. Compiled programs can offer faster execution, while interpreted environments make interactive development and testing convenient. Some programming language implementations combine both approaches.
 
----
+## 3. Commands / tools used
+
+| Command / Tool | Purpose |
+|---|---|
+| `cd mission-04-programs` | Navigates into the Mission 4 directory. |
+| `printf` | Writes the Python source code into `hello.py`. |
+| `python3 hello.py` | Executes the Python program using Python 3. |
+| Python 3 | Used to interpret and execute the program. |
+| Terminal | Used to create and execute the program through the command line. |
+
+## 4. My understanding
+
+A program consists of instructions that a computer executes to perform a particular task. These instructions are written in programming languages and need to be translated or processed into a form that the computer can execute.
+
+A compiler translates source code into another form before execution, often producing machine code or an executable file. An interpreter processes instructions during runtime and carries out their execution.
+
+I also learned that these approaches are not always completely separate. Some programming language implementations combine compilation and interpretation. For example, CPython compiles Python source code into bytecode before executing it using its virtual machine.
+
+Running the `hello.py` program helped me understand how Python code is executed through the Python runtime and how its output is displayed in the Terminal.
 
 ## 5. Difficulties faced
-- Differentiating between pure interpreted languages and modern virtual-machine-based languages (such as Python or Java) which perform an internal compilation step to intermediate bytecode before interpreting.
+
+No major difficulties.
 
 ## 6. How I resolved them
-- Clarified that while Python does compile source code into bytecode, it is classified as an interpreted language because the bytecode is executed inside a software runtime environment (the Python Virtual Machine) rather than directly by physical CPU hardware registers.
 
----
+Not applicable.
 
 ## 7. Evidence / files
-- Python program: [hello.py](file:///Users/kakul/Desktop/digital-detective-8017/mission-04-programs/hello.py)
-- Mission documentation: [README.md](file:///Users/kakul/Desktop/digital-detective-8017/mission-04-programs/README.md)
 
----
+- `hello.py` — Contains the Python program that displays the message "Hello from Python".
+- `README.md` — Contains the compiler/interpreter comparison, execution details and explanations.
 
 ## 8. Commit details
-- **Commit message:** `Compare compilers and interpreters`
-- **Target branch:** `main`
-- **Remote status:** Pushed and verified on GitHub
+
+**Commit message:** `Compare compilers and interpreters`
+
+**Push status:** Successfully committed and pushed to GitHub.

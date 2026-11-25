@@ -1,46 +1,43 @@
-# Mission 7 — How computers communicate
+# Mission 7 — How Computers Communicate
 
 ## 1. Task / objective
-The objective of Mission 7 is to examine computer networking fundamentals and protocol architectures. This includes defining key network scope models (LAN, MAN, WAN), routing, DNS translation, packet switching, and client-server paradigms; conducting practical connectivity and DNS resolution tests from the terminal; and explaining the complete step-by-step lifecycle of navigating to a website.
 
----
+Understand how computers communicate over networks and how different networking concepts work together to exchange information.
+
+The objective was to learn about LAN, MAN, WAN, DNS, routers, protocols, packet switching and the client-server model. I also used Terminal to test network connectivity, perform DNS lookups and understand what happens when a website is opened in a browser.
 
 ## 2. Work completed
-- Compiled a comprehensive network concepts table with original definitions and real-world infrastructure examples.
-- Conducted terminal-based ICMP packet reachability tests (`ping -c 3 example.com`) and analyzed latency metrics and packet loss.
-- Executed DNS resolution queries (`nslookup example.com`), observing how domain names map to IP address records.
-- Formulated an exact 6-step walkthrough describing what happens when a user requests a web page in a browser, correctly integrating terms: *client*, *server*, *DNS*, and *protocol*.
-- Applied strict privacy safeguards, redacting internal router gateways and local resolver IP addresses (`[redacted]`).
-
----
-
-## 3. Commands / tools used
-- `ping -c 3 example.com`: Sends 3 ICMP Echo Request packets to test end-to-end network reachability, packet loss, and round-trip latency.
-- `nslookup example.com`: Queries configured DNS nameservers to resolve a fully qualified domain name into IPv4 addresses.
-
----
-
-## 4. My understanding
 
 ### Task 7.1 — Explain network concepts
 
-| Concept | Explain it in your own words | Example |
-| :--- | :--- | :--- |
-| **LAN (Local Area Network)** | A privately managed network interconnecting computers and devices within a limited physical radius, such as a single room, residence, or office suite. | A home Wi-Fi network connecting a laptop, smartphone, and smart TV via a wireless access point. |
-| **MAN (Metropolitan Area Network)** | A high-bandwidth network infrastructure spanning an entire city or a multi-building university campus, connecting multiple LANs. | A citywide municipal fiber-optic network connecting civic libraries, police stations, and university campus buildings. |
-| **WAN (Wide Area Network)** | A telecommunications network spanning large geographical distances, across regional, national, or international boundaries. | The global Internet, connecting internet service providers (ISPs), submarine fiber cables, and satellite links worldwide. |
-| **DNS (Domain Name System)** | The decentralized directory service that translates human-friendly alphanumeric domain names into machine-routable numerical IP addresses. | Translating `example.com` into IPv4 address `93.184.216.34` or `104.20.23.154`. |
-| **Router** | A networking layer device (OSI Layer 3) that directs data packets between disparate networks by inspecting destination IP headers and consulting routing tables. | A home wireless gateway router forwarding traffic from local devices out onto the ISP's broadband network. |
-| **Protocol** | A standardized set of syntactic and semantic rules governing how devices format, transmit, verify, and receive data across a network. | **HTTP/HTTPS** for web hypertext, **TCP** for reliable stream transmission, and **IP** for packet addressing. |
-| **Packet switching** | The communication method where messages are divided into small, independent chunks (packets) routed dynamically across shared network links and reassembled at the destination. | Streaming a video where chunks travel independently along diverse physical paths across the Internet before being buffered by the player. |
-| **Client-server** | A distributed computing model where service requester devices (clients) initiate requests to centralized, always-listening resource providers (servers). | A web browser (client) requesting an HTML web page from an Apache/Nginx web server hosting a website. |
+Explored the basic networking concepts and understood their roles in computer communication.
 
----
+| Concept | Explanation | Example |
+|---|---|---|
+| LAN (Local Area Network) | A network that connects devices within a small geographical area, such as a home, office or computer lab. | Computers connected to the same network in a college lab. |
+| MAN (Metropolitan Area Network) | A network that covers a city or a large campus area and can connect multiple smaller networks. | A network connecting different university buildings across a city. |
+| WAN (Wide Area Network) | A network that covers large geographical areas and connects networks over long distances. | The Internet. |
+| DNS (Domain Name System) | Translates human-readable domain names into IP addresses so devices can locate servers. | Resolving `example.com` into its IP addresses. |
+| Router | Connects different networks and forwards data packets towards their destinations. | A Wi-Fi router connecting devices to the Internet. |
+| Protocol | A set of rules that devices follow when communicating over a network. | HTTP, HTTPS, TCP and IP. |
+| Packet switching | Divides data into smaller packets that travel across a network and are reassembled at their destination. | Sending a file over the Internet. |
+| Client-server | A communication model in which a client requests a service or resource and a server provides it. | A browser requesting a webpage from a web server. |
 
 ### Task 7.2 — Observe network information
 
-#### 1. Connectivity Test Observation (`ping -c 3 example.com`)
+Used Terminal to check connectivity with a public example domain and inspect the DNS records associated with it.
+
+#### 1. Connectivity test using ping
+
+**Command:**
+
+```bash
+ping -c 3 example.com
 ```
+
+**Observed output:**
+
+```text
 PING example.com (104.20.23.154): 56 data bytes
 64 bytes from 104.20.23.154: icmp_seq=0 ttl=47 time=58.460 ms
 64 bytes from 104.20.23.154: icmp_seq=1 ttl=47 time=69.009 ms
@@ -51,10 +48,36 @@ PING example.com (104.20.23.154): 56 data bytes
 round-trip min/avg/max/stddev = 58.460/83.928/124.314/28.880 ms
 ```
 
-#### 2. DNS Lookup Observation (`nslookup example.com`)
+**Observations:**
+
+| Information | Result |
+|---|---|
+| Destination | `example.com` |
+| Resolved IPv4 address | `104.20.23.154` |
+| Packets transmitted | 3 |
+| Packets received | 3 |
+| Packet loss | 0% |
+| Minimum response time | 58.460 ms |
+| Average response time | 83.928 ms |
+| Maximum response time | 124.314 ms |
+
+All packets received a response, with 0% packet loss during this test.
+
+This helped me understand how a connectivity test can be used to check whether a destination is reachable and observe the time taken for packets to travel to it and back.
+
+#### 2. DNS lookup using nslookup
+
+**Command:**
+
+```bash
+nslookup example.com
 ```
-Server:		[redacted-dns-server]
-Address:	[redacted-dns-server]#53
+
+**Observed output:**
+
+```text
+Server:		[redacted]
+Address:	[redacted]#53
 
 Non-authoritative answer:
 Name:	example.com
@@ -63,68 +86,84 @@ Name:	example.com
 Address: 104.20.23.154
 ```
 
-#### Diagnostic Questions & Answers
-1. **What does a connectivity test help you check?**  
-   A connectivity test (`ping`) verifies whether a remote host is powered on, actively listening, and reachable across intermediate routing nodes. It also measures round-trip latency (time required for an ICMP packet to reach the target and return) and packet loss percentage, identifying network congestion or line drops.
-2. **What information does a DNS lookup display?**  
-   It reveals the resolver server used to handle the request (port 53) and maps the queried hostname (`example.com`) to its corresponding IPv4/IPv6 resource records (e.g. `104.20.23.154`). It also indicates whether the response came directly from the authoritative nameserver or a cached non-authoritative resolver.
-3. **What is the role of DNS when entering a website name in a browser?**  
-   Humans recall textual domain names, but Internet routing protocols require numerical IP addresses. When a user types a URL, DNS acts as the essential directory lookup service: without resolving the hostname to an IP address, the client browser cannot know where to establish a TCP/IP network connection.
+**Observations:**
 
----
+The lookup used the configured DNS resolver on port 53 and returned the resolved IPv4 addresses for `example.com`.
+
+The result was marked as non-authoritative because it came from a DNS caching resolver rather than directly from an authoritative nameserver for the domain.
+
+#### Answers
+
+**1. What does a connectivity test help you check?**
+
+A connectivity test helps determine whether a destination can be reached over a network. It can also provide information about response time and packet loss.
+
+**2. What information does a DNS lookup display?**
+
+A DNS lookup displays records associated with a domain name, such as its IPv4 and IPv6 addresses, depending on the query.
+
+**3. What is the role of DNS when entering a website name in a browser?**
+
+DNS resolves the website's domain name into an IP address, allowing the browser to locate the server hosting the website.
 
 ### Task 7.3 — What happens when you open a website?
-A complete 6-step lifecycle of accessing `https://example.com`:
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant Client as User Browser (Client)
-    participant DNS as DNS Resolver
-    participant Router as Local Router & ISP
-    participant Server as Web Server (Server)
+Consider opening `https://example.com` in a web browser. The following steps describe the typical communication process.
 
-    Client->>DNS: Step 1 & 2: Lookup IP for domain name
-    DNS-->>Client: Returns IP: 104.20.23.154
-    Client->>Server: Step 3: TCP 3-Way Handshake (via Router)
-    Client->>Server: Step 4: TLS Cryptographic Negotiation
-    Client->>Server: Step 5: HTTPS GET / Request (Application Protocol)
-    Server-->>Client: Step 6: HTTP 200 OK + HTML payload
-    Note over Client: Step 6: Browser parses DOM & renders web page
-```
+1. **The browser receives the request:** The user enters a website URL. The browser acts as a client and identifies the domain name and resource that needs to be accessed.
 
-1. **Step 1: User Input & Local Cache Check**  
-   The user types `https://example.com` into the web browser (**client**). The browser checks its local memory cache and the OS cache to see if the IP address for `example.com` was recently resolved.
-2. **Step 2: DNS Resolution**  
-   If not cached, the client issues a **DNS** request through the local **router** to a recursive DNS resolver. The resolver queries the root nameserver, the `.com` Top-Level Domain (TLD) nameserver, and finally the authoritative nameserver for `example.com`, returning its numerical IP address (e.g., `104.20.23.154`) back to the client.
-3. **Step 3: Network Routing & Connection Establishment (TCP)**  
-   The client creates packets addressed to `104.20.23.154` on port 443. The local **router** forwards these packets using **packet switching** across regional ISPs and internet backbones. The client and **server** perform the Transmission Control **Protocol** (TCP) three-way handshake (SYN, SYN-ACK, ACK) to establish a reliable connection.
-4. **Step 4: TLS Encryption Handshake**  
-   Because the URL specifies HTTPS, a cryptographic TLS handshake occurs over the established TCP connection. The client verifies the server's digital SSL/TLS certificate and both parties securely negotiate symmetric encryption keys.
-5. **Step 5: Client HTTP Request**  
-   Using the HTTPS **protocol**, the client browser transmits an encrypted HTTP `GET /` request packet asking the server for the root HTML resource.
-6. **Step 6: Server Processing & Browser Rendering**  
-   The web **server** processes the request, locates the requested index file, and responds with an HTTP status code `200 OK` along with the HTML payload. The client browser parses the HTML, fetches referenced stylesheets/scripts, constructs the Document Object Model (DOM), and renders the completed web page onto the screen.
+2. **DNS resolves the domain name:** The browser or operating system checks available DNS caches. If necessary, it contacts a DNS resolver to obtain the IP address associated with the domain.
 
----
+3. **A connection is established:** Using the resolved IP address, the browser locates the server. Routers forward packets through the network towards their destination. For HTTPS, a secure TLS connection is established over TCP.
+
+4. **The client sends a request:** The browser sends an HTTP request to the server using the appropriate communication protocols.
+
+5. **The server processes the request:** The server receives the request, processes it and sends an HTTP response containing the requested webpage and other resources.
+
+6. **The browser displays the website:** The browser receives and interprets the response, loads the required resources and renders the webpage for the user.
+
+This process allows a client and server to communicate using networking protocols while DNS and network devices help the request reach the correct destination.
+
+## 3. Commands / tools used
+
+| Command / Tool | Purpose |
+|---|---|
+| `ping -c 3 example.com` | Sends connectivity test requests to the example domain and displays response times and packet loss. |
+| `nslookup example.com` | Looks up DNS information associated with a domain name. |
+| Terminal | Used to execute network commands and observe their output. |
+
+## 4. My understanding
+
+I learned how computers communicate over networks and how different networking concepts work together.
+
+A LAN connects devices within a small area, while a MAN covers a larger area such as a city. A WAN connects networks across much greater geographical distances. The Internet is a familiar example of a WAN.
+
+I also understood the role of DNS in translating domain names into IP addresses. Instead of remembering numerical addresses for websites, users can enter readable domain names, and DNS helps the computer locate the corresponding servers.
+
+Routers forward packets between networks, while protocols define the rules devices follow when exchanging information. Packet switching allows data to be divided into smaller packets and transmitted across a network.
+
+The client-server model helped me understand how a web browser requests resources from a server and receives a response.
+
+Testing connectivity using `ping` and performing DNS lookups using `nslookup` helped connect these concepts with actual network operations on my computer.
+
+I also understood the basic sequence involved in opening a website, starting from entering its URL to resolving its domain, communicating with the server and displaying the returned webpage.
 
 ## 5. Difficulties faced
-- Ensuring private network details such as domestic Wi-Fi gateway IP addresses or internal corporate resolvers were completely scrubbed from terminal outputs.
-- Synthesizing complex multi-layer networking steps (DNS, TCP, TLS, HTTP) into a concise, ordered 6-step walkthrough.
+
+No major difficulties were encountered during the network checks. Commands executed successfully and returned usable results.
 
 ## 6. How I resolved them
-- Carefully replaced local nameserver addresses in terminal transcripts with `[redacted-dns-server]`.
-- Used a Mermaid sequence diagram and an ordered sequence to illustrate the flow between client, DNS, router, and server.
 
----
+No troubleshooting was required. Observed DNS and ping outputs, verifying that identifying local network information was redacted.
 
 ## 7. Evidence / files
-- [README.md](file:///Users/kakul/Desktop/digital-detective-8017/mission-07-networking/README.md)
-- Root index linkage: [Root README.md](file:///Users/kakul/Desktop/digital-detective-8017/README.md)
 
----
+- `README.md` — Contains the networking concepts, actual connectivity and DNS observations, command explanations and the website communication process.
+
+The recorded network observations use the public example domain `example.com`. No personal IP address, Wi-Fi name or other identifying network details have been included.
 
 ## 8. Commit details
-- **Commit message:** `Explain networking concepts and website communication`
-- **Target branch:** `main`
-- **Remote status:** Pushed and verified on GitHub
+
+**Commit message:** `Explain networking concepts and website communication`
+
+**Push status:** Successfully committed and pushed to GitHub.

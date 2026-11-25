@@ -1,55 +1,102 @@
 # Mission 0 — Create your GitHub workspace
 
 ## 1. Task / objective
-The objective of Mission 0 is to set up a clean, correctly named GitHub workspace and establish the project directory structure for all nine missions (0 through 8). This includes verifying system tools (Python 3 and Git), structuring folders and documentation according to assignment guidelines, preparing the root README, and linking the local workspace to the public GitHub repository.
+
+Create a correctly named GitHub repository and prepare an organised folder structure for all the missions in the Digital Detective assignment.
+
+The objective was to set up a local development workspace, verify the required tools, and publish the project as a public GitHub repository.
+
+**Repository name:** `digital-detective-8017`
 
 ## 2. Work completed
-- Decided and confirmed repository name: `digital-detective-8017` (matching assignment name + last 4 digits of USN).
-- Initialized local repository inside `/Users/kakul/Desktop/digital-detective-8017` on branch `main`.
-- Connected the remote GitHub repository at `https://github.com/kakuldeka/digital-detective-8017.git`.
-- Checked and verified local installations and versions of Python 3 (`Python 3.14.7`) and Git (`git version 2.54.0`).
-- Generated all required mission folders (`mission-00-setup` through `mission-08-final-report`), the `evidence/` directory, and initial file placeholders.
-- Drafted the root `README.md` with student metadata, mission navigation links, and project goals.
-- Authored this `README.md` following the standardized 8-section reporting structure.
+
+- Created the local project directory named `digital-detective-8017`.
+- Created the required folder structure for all nine missions (Mission 0–8).
+- Created a separate `README.md` inside every mission directory.
+- Created the root `README.md` to introduce the project and provide a mission index.
+- Created the `evidence/` directory for storing screenshots and supporting outputs.
+- Created the initial `number_converter.py` file inside `mission-05-numbers-data/`.
+- Verified the availability of Python 3 and Git.
+- Initialised the local Git repository with `main` as its initial branch.
+- Configured the Git author profile for the assignment.
+- Connected the local repository to GitHub and published the setup commit.
 
 ## 3. Commands / tools used
-- `python3 --version`: Verified the installed Python runtime version (`Python 3.14.7`).
-- `git --version`: Verified the installed Git version (`git version 2.54.0`).
-- `git init -b main`: Initialized a clean, local Git repository with `main` as the default branch.
-- `git remote add origin https://github.com/kakuldeka/digital-detective-8017.git`: Linked local directory to the remote GitHub repository.
-- `mkdir -p`: Created directories for each mission and the evidence folder.
-- `touch`: Created placeholder Markdown files and python script files.
+
+| Command / Tool | Purpose |
+|---|---|
+| `python3 --version` | Checked the installed Python version (3.14.7). |
+| `git --version` | Checked the installed Git version (2.54.0, Apple Git-157). |
+| `git config --global init.defaultBranch main` | Configured `main` as the default initial branch. |
+| `git init -b main` | Initialised the local Git repository on branch `main`. |
+| `git remote add origin https://github.com/kakuldeka/digital-detective-8017.git` | Linked local repository to the public GitHub remote repository. |
+| `git status` | Checked the repository state and identified untracked files. |
+| `mkdir -p` | Created mission directories and evidence folder. |
 
 ## 4. My understanding
-- **What is a Git Repository?**  
-  A repository (or repo) is a managed digital workspace tracked by Git. It records changes made to files over time, keeping a complete history of snapshots (commits). This allows developers to roll back errors, inspect historical states, and collaborate seamlessly across different machines.
-- **Why organize folders by mission?**  
-  Structuring the project into dedicated folders (`mission-00-setup`, `mission-01-computer-basics`, etc.) provides separation of concerns. Each topic can be developed, tested, documented, and reviewed in isolation without cluttering the project root or mixing up files. It also maps directly to the assignment's modular evaluation criteria.
+
+A Git repository is a project directory whose changes are tracked using Git. It contains the project's files along with the `.git` directory, which stores the repository's history and other version-control information.
+
+GitHub provides online hosting for Git repositories, allowing projects to be published, accessed and collaborated on.
+
+The assignment is organised into separate mission directories to keep related tasks, documentation and evidence together. This makes the repository easier to navigate and maintain.
 
 ## 5. Difficulties faced
-- The parent user directory (`/Users/kakul`) had an existing repository initialization, which initially caused Git commands inside subfolders to report parent untracked files instead of an isolated workspace.
-- Needed to ensure the local folder `/Users/kakul/Desktop/digital-detective-8017` had its own independent `.git` repository tracking only assignment files.
+
+- Initially, running Git inside subfolders detected the parent home directory repository before an independent local `.git` repository was established.
+- Ensuring `main` was the initial branch and properly tracking the remote origin on GitHub.
 
 ## 6. How I resolved them
-- Explicitly ran `git init -b main` within `/Users/kakul/Desktop/digital-detective-8017` to establish a dedicated Git root boundary for this assignment.
-- Verified with `git status` and `git remote -v` that only files inside `digital-detective-8017` are tracked and associated with the `digital-detective-8017` remote.
+
+- Initialised a dedicated local repository directly inside `digital-detective-8017` using `git init -b main`.
+- Configured the remote origin to `https://github.com/kakuldeka/digital-detective-8017.git` and verified with `git remote -v`.
 
 ## 7. Evidence / files
-- [README.md](file:///Users/kakul/Desktop/digital-detective-8017/README.md)
-- [mission-00-setup/README.md](file:///Users/kakul/Desktop/digital-detective-8017/mission-00-setup/README.md)
-- Directory layout:
-  - `mission-00-setup/`
-  - `mission-01-computer-basics/`
-  - `mission-02-terminal/`
-  - `mission-03-operating-system/`
-  - `mission-04-programs/`
-  - `mission-05-numbers-data/`
-  - `mission-06-git-github/`
-  - `mission-07-networking/`
-  - `mission-08-final-report/`
-  - `evidence/`
+
+The repository contains the following structure:
+
+```text
+digital-detective-8017/
+├── .gitignore
+├── evidence/
+│   ├── .gitkeep
+│   └── pr_merge_status.png
+├── mission-00-setup/
+│   └── README.md
+├── mission-01-computer-basics/
+│   └── README.md
+├── mission-02-terminal/
+│   ├── practice-2-1/
+│   │   ├── renamed-copy.txt
+│   │   └── sample.txt
+│   ├── terminal-practice/
+│   │   ├── notes-backup.txt
+│   │   └── notes.txt
+│   └── README.md
+├── mission-03-operating-system/
+│   └── README.md
+├── mission-04-programs/
+│   ├── hello.py
+│   └── README.md
+├── mission-05-numbers-data/
+│   ├── number_converter.py
+│   └── README.md
+├── mission-06-git-github/
+│   └── README.md
+├── mission-07-networking/
+│   └── README.md
+├── mission-08-final-report/
+│   └── README.md
+└── README.md
+```
+
+**Tools verified:**
+
+- Python 3.14.7
+- Git 2.54.0 (Apple Git-157)
 
 ## 8. Commit details
-- **Commit message:** `Set up Digital Detective mission structure`
-- **Target branch:** `main`
-- **Remote status:** Pushed and verified on GitHub at `https://github.com/kakuldeka/digital-detective-8017`
+
+**Commit message:** "Set up Digital Detective mission structure".
+
+**GitHub push status:** Successfully committed and pushed to GitHub.
